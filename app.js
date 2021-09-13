@@ -31,20 +31,28 @@ let tempMonth = tempDate.getMonth();
 // console.log("teapMonth", tempMonth);
 let tempDay = tempDate.getDate();
 // console.log("tempDay", tempDay);
-let futureDate = new Date(tempYear, tempMonth, tempDay, 15, 30, 0);
+let futureDate = new Date(tempYear, tempMonth, tempDay, 15, 0, 0);
 
 const year = futureDate.getFullYear();
-const hours = futureDate.getHours();
-const minutes = futureDate.getMinutes();
+const hours =
+  futureDate.getHours() < 10
+    ? `0${futureDate.getHours()}`
+    : futureDate.getHours();
+const minutes =
+  futureDate.getMinutes() < 10
+    ? `0${futureDate.getMinutes()}`
+    : futureDate.getMinutes();
+
+// console.log("minutes", minutes);
 let month = months[futureDate.getMonth()];
 const date = futureDate.getDate();
 // console.log(futureDate.getDay());
 const weekday = weekdays[futureDate.getDay()];
 
-end.textContent = `Buổi Học Tiếp Theo ${weekday}, ${date} ${month} ${year} ${hours}:${minutes}`;
+end.textContent = `Buổi Học Tiếp Theo ${weekday}, ${date} ${month} ${year}, ${hours}:${minutes}`;
 
 const futureTime = futureDate.getTime();
-console.log("futureDate", futureDate);
+// console.log("futureDate", futureDate);
 function getRemainingTime() {
   const today = new Date().getTime();
   // console.log("today", today);
