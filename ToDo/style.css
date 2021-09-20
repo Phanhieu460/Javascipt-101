@@ -35,6 +35,7 @@ select {
   background-color: white;
   border: none;
   margin: 5px;
+  outline: none;
 }
 .todo-container{
     display: flex;
